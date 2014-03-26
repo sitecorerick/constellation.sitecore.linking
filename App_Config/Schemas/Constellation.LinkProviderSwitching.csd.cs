@@ -8,32 +8,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Constellation.Sitecore
+namespace Constellation.Sitecore.Links
 {
     
     
     /// <summary>
-    /// The LinkProviderSwitching Configuration Section.
+    /// The SwitchingLinkProviderConfiguration Configuration Section.
     /// </summary>
-    public partial class LinkProviderSwitching : global::System.Configuration.ConfigurationSection
+    public partial class SwitchingLinkProviderConfiguration : global::System.Configuration.ConfigurationSection
     {
         
         #region Singleton Instance
         /// <summary>
-        /// The XML name of the LinkProviderSwitching Configuration Section.
+        /// The XML name of the SwitchingLinkProviderConfiguration Configuration Section.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        internal const string LinkProviderSwitchingSectionName = "linkProviderSwitching";
+        internal const string SwitchingLinkProviderConfigurationSectionName = "switchingLinkProvider";
         
         /// <summary>
-        /// Gets the LinkProviderSwitching instance.
+        /// Gets the SwitchingLinkProviderConfiguration instance.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public static global::Constellation.Sitecore.LinkProviderSwitching Instance
+        public static global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration Instance
         {
             get
             {
-                return ((global::Constellation.Sitecore.LinkProviderSwitching)(global::System.Configuration.ConfigurationManager.GetSection(global::Constellation.Sitecore.LinkProviderSwitching.LinkProviderSwitchingSectionName)));
+                return ((global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration)(global::System.Configuration.ConfigurationManager.GetSection(global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.SwitchingLinkProviderConfigurationSectionName)));
             }
         }
         #endregion
@@ -53,12 +53,12 @@ namespace Constellation.Sitecore
         /// the parser doesn't throw an exception because it encounters the unknown "xmlns" attribute.
         /// </remarks>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.LinkProviderSwitching.XmlnsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.XmlnsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public string Xmlns
         {
             get
             {
-                return ((string)(base[global::Constellation.Sitecore.LinkProviderSwitching.XmlnsPropertyName]));
+                return ((string)(base[global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.XmlnsPropertyName]));
             }
         }
         #endregion
@@ -86,16 +86,16 @@ namespace Constellation.Sitecore
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The DefaultLinkProviderType.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.LinkProviderSwitching.DefaultLinkProviderTypePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.DefaultLinkProviderTypePropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual global::System.Type DefaultLinkProviderType
         {
             get
             {
-                return ((global::System.Type)(base[global::Constellation.Sitecore.LinkProviderSwitching.DefaultLinkProviderTypePropertyName]));
+                return ((global::System.Type)(base[global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.DefaultLinkProviderTypePropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.LinkProviderSwitching.DefaultLinkProviderTypePropertyName] = value;
+                base[global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.DefaultLinkProviderTypePropertyName] = value;
             }
         }
         #endregion
@@ -112,16 +112,16 @@ namespace Constellation.Sitecore
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The LinkProviderRules.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.LinkProviderSwitching.LinkProviderRulesPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.LinkProviderRulesPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public virtual global::Constellation.Sitecore.LinkProviderRules LinkProviderRules
         {
             get
             {
-                return ((global::Constellation.Sitecore.LinkProviderRules)(base[global::Constellation.Sitecore.LinkProviderSwitching.LinkProviderRulesPropertyName]));
+                return ((global::Constellation.Sitecore.LinkProviderRules)(base[global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.LinkProviderRulesPropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.LinkProviderSwitching.LinkProviderRulesPropertyName] = value;
+                base[global::Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration.LinkProviderRulesPropertyName] = value;
             }
         }
         #endregion
@@ -143,7 +143,7 @@ namespace Constellation.Sitecore
         /// The XML name of the individual <see cref="global::Constellation.Sitecore.LinkProviderRule"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        internal const string LinkProviderRulePropertyName = "linkProvider";
+        internal const string LinkProviderRulePropertyName = "linkProviderRule";
         #endregion
         
         #region Overrides
@@ -243,11 +243,11 @@ namespace Constellation.Sitecore
         /// <summary>
         /// Adds the specified <see cref="global::Constellation.Sitecore.LinkProviderRule"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
-        /// <param name="linkProvider">The <see cref="global::Constellation.Sitecore.LinkProviderRule"/> to add.</param>
+        /// <param name="linkProviderRule">The <see cref="global::Constellation.Sitecore.LinkProviderRule"/> to add.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public void Add(global::Constellation.Sitecore.LinkProviderRule linkProvider)
+        public void Add(global::Constellation.Sitecore.LinkProviderRule linkProviderRule)
         {
-            base.BaseAdd(linkProvider);
+            base.BaseAdd(linkProviderRule);
         }
         #endregion
         
@@ -255,11 +255,11 @@ namespace Constellation.Sitecore
         /// <summary>
         /// Removes the specified <see cref="global::Constellation.Sitecore.LinkProviderRule"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
-        /// <param name="linkProvider">The <see cref="global::Constellation.Sitecore.LinkProviderRule"/> to remove.</param>
+        /// <param name="linkProviderRule">The <see cref="global::Constellation.Sitecore.LinkProviderRule"/> to remove.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public void Remove(global::Constellation.Sitecore.LinkProviderRule linkProvider)
+        public void Remove(global::Constellation.Sitecore.LinkProviderRule linkProviderRule)
         {
-            base.BaseRemove(this.GetElementKey(linkProvider));
+            base.BaseRemove(this.GetElementKey(linkProviderRule));
         }
         #endregion
         

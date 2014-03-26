@@ -7,32 +7,32 @@
     the code is regenerated.
 </auto-generated>
 -->
-<xs:schema xmlns:tns="urn:Constellation.Sitecore.SharedContent" elementFormDefault="qualified" targetNamespace="urn:Constellation.Sitecore.SharedContent" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="Constellation" type="tns:Constellation.Sitecore.Links.ConstellationCT" />
-	<xs:complexType name="Constellation.Sitecore.Links.ConstellationCT">
+<xs:schema xmlns:tns="urn:Constellation.Sitecore" elementFormDefault="qualified" targetNamespace="urn:Constellation.Sitecore" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Constellation" type="tns:Constellation.Sitecore.ConstellationCT" />
+	<xs:complexType name="Constellation.Sitecore.ConstellationCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="1" name="sharedContent" type="tns:Constellation.Sitecore.Links.SharedContentCT" />
+			<xs:element minOccurs="0" maxOccurs="1" name="sharedContent" type="tns:Constellation.Sitecore.Links.SharedContentConfigurationCT" />
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="Constellation.Sitecore.Links.SharedContentCT">
+	<xs:complexType name="Constellation.Sitecore.Links.SharedContentConfigurationCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" name="sharedContentFolders" type="tns:Constellation.Sitecore.Links.SharedContentFoldersCT">
+			<xs:element minOccurs="0" name="sharedContentFolders" type="tns:Constellation.Sitecore.SharedContentFoldersCT">
 				<xs:annotation>
 					<xs:documentation>The SharedContentFolders.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="Constellation.Sitecore.Links.SharedContentFoldersCT">
+	<xs:complexType name="Constellation.Sitecore.SharedContentFoldersCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="sharedContentFolder" type="tns:Constellation.Sitecore.Links.SharedContentFolderCT">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="sharedContentFolder" type="tns:Constellation.Sitecore.SharedContentFolderCT">
 				<xs:annotation>
 					<xs:documentation>The SharedContentFolder Configuration Element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="Constellation.Sitecore.Links.SharedContentFolderCT">
+	<xs:complexType name="Constellation.Sitecore.SharedContentFolderCT">
 		<xs:attribute name="templateName" use="required" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>The TemplateName.</xs:documentation>

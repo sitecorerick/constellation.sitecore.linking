@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+
+<configuration>
+	<!-- Place this section in your Web.Config
+	<configSections>
+		<sectionGroup name="Constellation" type="System.Configuration.ConfigurationSectionGroup, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+			<section name="sharedContent" type="Constellation.Sitecore.Links.SharedContentConfiguration, Constellation.Sitecore.Linking, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+		</sectionGroup>
+	</configSections>
+	<Constellation xmlns="urn:Constellation.Sitecore">
+		<switchingLinkProvider configSource="App_Config\Constellation.SharedContent.config" />
+	</Constellation>
+	end Web.Config section -->
+	
+	<Constellation xmlns="urn:Constellation.Sitecore.SharedContent">
+		<sharedContent>
+			<sharedContentFolders>
+				<sharedContentFolder templateName ="News Detail Page" rootPath="/sitecore/content" folderName="News" categorizedBySiteFolder="true" pathToSiteFolder="/sitecore/content/news/" parentPageQuery="/sitecore/content/sites/$site/home/news"/>
+			</sharedContentFolders>
+		</sharedContent>
+	</Constellation>
+</configuration>

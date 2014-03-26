@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<configuration>
+	<!-- Place this section in your Web.Config
+	<configSections>
+		<sectionGroup name="Constellation" type="System.Configuration.ConfigurationSectionGroup, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+			<section name="switchingLinkProvider" type="Constellation.Sitecore.Links.SwitchingLinkProviderConfiguration, Constellation.Sitecore.Linking, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+		</sectionGroup>
+	</configSections>
+
+	<Constellation xmlns="urn:Constellation.Sitecore">
+		<switchingLinkProvider configSource="App_Config\Constellation.LinkProviderSwitching.config" />
+	</Constellation>
+	end Web Config section -->
+	
+	
+	<Constellation xmlns="urn:Constellation.Sitecore">
+		<switchingLinkProvider defaultLinkProviderType="Constellation.Sitecore.Links.SharedContentLinkProvider, Constellation.Sitecore.Linking">
+			<linkProviderRules>
+				<linkProviderRule site="shell" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="login" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="admin" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="service" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="modules_shell" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="modules_website" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="scheduler" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="system" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+				<linkProviderRule site="publisher" linkProviderType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+			</linkProviderRules>
+		</switchingLinkProvider>
+	</Constellation>
+</configuration>

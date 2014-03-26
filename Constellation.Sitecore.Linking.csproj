@@ -47,12 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Config\Constellation.LinkProviderSwitching.csd.cs">
+    <Compile Include="App_Config\Schemas\Constellation.LinkProviderSwitching.csd.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Constellation.LinkProviderSwitching.csd</DependentUpon>
     </Compile>
-    <Compile Include="App_Config\Constellation.SharedContent.csd.cs">
+    <Compile Include="App_Config\Schemas\Constellation.SharedContent.csd.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
@@ -72,33 +72,41 @@
     <Content Include="Constellation.Sitecore.Linking.License.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Config\Constellation.LinkProviderSwitching.csd">
+    <None Include="App_Config\Constellation.LinkProviderSwitching.config.Example">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App_Config\Schemas\Constellation.LinkProviderSwitching.csd">
       <Generator>CsdFileGenerator</Generator>
       <LastGenOutput>Constellation.LinkProviderSwitching.csd.cs</LastGenOutput>
     </None>
-    <None Include="App_Config\Constellation.LinkProviderSwitching.csd.config">
+    <None Include="App_Config\Schemas\Constellation.LinkProviderSwitching.csd.config">
       <DependentUpon>Constellation.LinkProviderSwitching.csd</DependentUpon>
     </None>
-    <None Include="App_Config\Constellation.LinkProviderSwitching.csd.diagram">
+    <None Include="App_Config\Schemas\Constellation.LinkProviderSwitching.csd.diagram">
       <DependentUpon>Constellation.LinkProviderSwitching.csd</DependentUpon>
     </None>
-    <None Include="App_Config\Constellation.LinkProviderSwitching.csd.xsd">
+    <None Include="App_Config\Schemas\Constellation.LinkProviderSwitching.csd.xsd">
       <DependentUpon>Constellation.LinkProviderSwitching.csd</DependentUpon>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App_Config\Constellation.SharedContent.csd">
+    <None Include="App_Config\Constellation.SharedContent.config.Example">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App_Config\Schemas\Constellation.SharedContent.csd">
       <Generator>CsdFileGenerator</Generator>
       <LastGenOutput>Constellation.SharedContent.csd.cs</LastGenOutput>
     </None>
-    <None Include="App_Config\Constellation.SharedContent.csd.config">
+    <None Include="App_Config\Schemas\Constellation.SharedContent.csd.config">
       <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
     </None>
-    <None Include="App_Config\Constellation.SharedContent.csd.diagram">
+    <None Include="App_Config\Schemas\Constellation.SharedContent.csd.diagram">
       <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
     </None>
-    <None Include="App_Config\Constellation.SharedContent.csd.xsd">
+    <None Include="App_Config\Schemas\Constellation.SharedContent.csd.xsd">
       <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Constellation.Sitecore.Linking.nuspec" />
     <None Include="packages.config" />

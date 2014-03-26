@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<configurationSectionModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0191e669-3274-454b-8b87-85ce129728bc" namespace="Constellation.Sitecore.Links" xmlSchemaNamespace="urn:Constellation.Sitecore.SharedContent" xmlns="http://schemas.microsoft.com/dsltools/ConfigurationSectionDesigner">
+<configurationSectionModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0191e669-3274-454b-8b87-85ce129728bc" namespace="Constellation.Sitecore" xmlSchemaNamespace="urn:Constellation.Sitecore" xmlns="http://schemas.microsoft.com/dsltools/ConfigurationSectionDesigner">
   <typeDefinitions>
     <externalType name="String" namespace="System" />
     <externalType name="Boolean" namespace="System" />
@@ -15,12 +15,12 @@
       <configurationSectionProperties>
         <configurationSectionProperty>
           <containedConfigurationSection>
-            <configurationSectionMoniker name="/0191e669-3274-454b-8b87-85ce129728bc/SharedContent" />
+            <configurationSectionMoniker name="/0191e669-3274-454b-8b87-85ce129728bc/SharedContentConfiguration" />
           </containedConfigurationSection>
         </configurationSectionProperty>
       </configurationSectionProperties>
     </configurationSectionGroup>
-    <configurationSection name="SharedContent" codeGenOptions="Singleton, XmlnsProperty" xmlSectionName="sharedContent">
+    <configurationSection name="SharedContentConfiguration" namespace="Constellation.Sitecore.Links" codeGenOptions="Singleton, XmlnsProperty" xmlSectionName="sharedContent">
       <elementProperties>
         <elementProperty name="SharedContentFolders" isRequired="false" isKey="false" isDefaultCollection="true" xmlName="sharedContentFolders" isReadOnly="false">
           <type>

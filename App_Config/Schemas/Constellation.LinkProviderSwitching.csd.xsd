@@ -11,10 +11,10 @@
 	<xs:element name="Constellation" type="tns:Constellation.Sitecore.ConstellationCT" />
 	<xs:complexType name="Constellation.Sitecore.ConstellationCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="1" name="linkProviderSwitching" type="tns:Constellation.Sitecore.LinkProviderSwitchingCT" />
+			<xs:element minOccurs="0" maxOccurs="1" name="switchingLinkProvider" type="tns:Constellation.Sitecore.Links.SwitchingLinkProviderConfigurationCT" />
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="Constellation.Sitecore.LinkProviderSwitchingCT">
+	<xs:complexType name="Constellation.Sitecore.Links.SwitchingLinkProviderConfigurationCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
 			<xs:element minOccurs="0" name="linkProviderRules" type="tns:Constellation.Sitecore.LinkProviderRulesCT">
 				<xs:annotation>
@@ -30,7 +30,7 @@
 	</xs:complexType>
 	<xs:complexType name="Constellation.Sitecore.LinkProviderRulesCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="linkProvider" type="tns:Constellation.Sitecore.LinkProviderRuleCT">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="linkProviderRule" type="tns:Constellation.Sitecore.LinkProviderRuleCT">
 				<xs:annotation>
 					<xs:documentation>The LinkProviderRule Configuration Element.</xs:documentation>
 				</xs:annotation>

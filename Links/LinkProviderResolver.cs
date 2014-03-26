@@ -18,8 +18,8 @@
 		/// </returns>
 		public static LinkProvider Resolve(string site)
 		{
-			var rule = LinkProviderSwitching.Instance.LinkProviderRules[site];
-			var providerType = LinkProviderSwitching.Instance.DefaultLinkProviderType;
+			var rule = SwitchingLinkProviderConfiguration.Instance.LinkProviderRules[site];
+			var providerType = SwitchingLinkProviderConfiguration.Instance.DefaultLinkProviderType;
 
 			if (rule != null)
 			{

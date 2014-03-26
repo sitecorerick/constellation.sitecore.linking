@@ -16,12 +16,12 @@
       <configurationSectionProperties>
         <configurationSectionProperty>
           <containedConfigurationSection>
-            <configurationSectionMoniker name="/f6c18f70-4ce8-4811-aa7a-dd82768c6b58/LinkProviderSwitching" />
+            <configurationSectionMoniker name="/f6c18f70-4ce8-4811-aa7a-dd82768c6b58/SwitchingLinkProviderConfiguration" />
           </containedConfigurationSection>
         </configurationSectionProperty>
       </configurationSectionProperties>
     </configurationSectionGroup>
-    <configurationSection name="LinkProviderSwitching" codeGenOptions="Singleton, XmlnsProperty" xmlSectionName="linkProviderSwitching">
+    <configurationSection name="SwitchingLinkProviderConfiguration" namespace="Constellation.Sitecore.Links" codeGenOptions="Singleton, XmlnsProperty" xmlSectionName="switchingLinkProvider">
       <attributeProperties>
         <attributeProperty name="DefaultLinkProviderType" isRequired="true" isKey="false" isDefaultCollection="false" xmlName="defaultLinkProviderType" isReadOnly="false">
           <type>
@@ -37,7 +37,7 @@
         </elementProperty>
       </elementProperties>
     </configurationSection>
-    <configurationElementCollection name="LinkProviderRules" xmlItemName="linkProvider" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+    <configurationElementCollection name="LinkProviderRules" xmlItemName="linkProviderRule" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
       <itemType>
         <configurationElementMoniker name="/f6c18f70-4ce8-4811-aa7a-dd82768c6b58/LinkProviderRule" />
       </itemType>

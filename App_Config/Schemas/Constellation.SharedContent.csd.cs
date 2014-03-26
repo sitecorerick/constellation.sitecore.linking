@@ -13,27 +13,27 @@ namespace Constellation.Sitecore.Links
     
     
     /// <summary>
-    /// The SharedContent Configuration Section.
+    /// The SharedContentConfiguration Configuration Section.
     /// </summary>
-    public partial class SharedContent : global::System.Configuration.ConfigurationSection
+    public partial class SharedContentConfiguration : global::System.Configuration.ConfigurationSection
     {
         
         #region Singleton Instance
         /// <summary>
-        /// The XML name of the SharedContent Configuration Section.
+        /// The XML name of the SharedContentConfiguration Configuration Section.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        internal const string SharedContentSectionName = "sharedContent";
+        internal const string SharedContentConfigurationSectionName = "sharedContent";
         
         /// <summary>
-        /// Gets the SharedContent instance.
+        /// Gets the SharedContentConfiguration instance.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public static global::Constellation.Sitecore.Links.SharedContent Instance
+        public static global::Constellation.Sitecore.Links.SharedContentConfiguration Instance
         {
             get
             {
-                return ((global::Constellation.Sitecore.Links.SharedContent)(global::System.Configuration.ConfigurationManager.GetSection(global::Constellation.Sitecore.Links.SharedContent.SharedContentSectionName)));
+                return ((global::Constellation.Sitecore.Links.SharedContentConfiguration)(global::System.Configuration.ConfigurationManager.GetSection(global::Constellation.Sitecore.Links.SharedContentConfiguration.SharedContentConfigurationSectionName)));
             }
         }
         #endregion
@@ -53,12 +53,12 @@ namespace Constellation.Sitecore.Links
         /// the parser doesn't throw an exception because it encounters the unknown "xmlns" attribute.
         /// </remarks>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContent.XmlnsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentConfiguration.XmlnsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public string Xmlns
         {
             get
             {
-                return ((string)(base[global::Constellation.Sitecore.Links.SharedContent.XmlnsPropertyName]));
+                return ((string)(base[global::Constellation.Sitecore.Links.SharedContentConfiguration.XmlnsPropertyName]));
             }
         }
         #endregion
@@ -86,35 +86,35 @@ namespace Constellation.Sitecore.Links
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The SharedContentFolders.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContent.SharedContentFoldersPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=true)]
-        public virtual global::Constellation.Sitecore.Links.SharedContentFolders SharedContentFolders
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentConfiguration.SharedContentFoldersPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=true)]
+        public virtual global::Constellation.Sitecore.SharedContentFolders SharedContentFolders
         {
             get
             {
-                return ((global::Constellation.Sitecore.Links.SharedContentFolders)(base[global::Constellation.Sitecore.Links.SharedContent.SharedContentFoldersPropertyName]));
+                return ((global::Constellation.Sitecore.SharedContentFolders)(base[global::Constellation.Sitecore.Links.SharedContentConfiguration.SharedContentFoldersPropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.Links.SharedContent.SharedContentFoldersPropertyName] = value;
+                base[global::Constellation.Sitecore.Links.SharedContentConfiguration.SharedContentFoldersPropertyName] = value;
             }
         }
         #endregion
     }
 }
-namespace Constellation.Sitecore.Links
+namespace Constellation.Sitecore
 {
     
     
     /// <summary>
     /// A collection of SharedContentFolder instances.
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::Constellation.Sitecore.Links.SharedContentFolder), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::Constellation.Sitecore.Links.SharedContentFolders.SharedContentFolderPropertyName)]
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::Constellation.Sitecore.SharedContentFolder), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::Constellation.Sitecore.SharedContentFolders.SharedContentFolderPropertyName)]
     public partial class SharedContentFolders : global::System.Configuration.ConfigurationElementCollection
     {
         
         #region Constants
         /// <summary>
-        /// The XML name of the individual <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> instances in this collection.
+        /// The XML name of the individual <see cref="global::Constellation.Sitecore.SharedContentFolder"/> instances in this collection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         internal const string SharedContentFolderPropertyName = "sharedContentFolder";
@@ -142,7 +142,7 @@ namespace Constellation.Sitecore.Links
         {
             get
             {
-                return global::Constellation.Sitecore.Links.SharedContentFolders.SharedContentFolderPropertyName;
+                return global::Constellation.Sitecore.SharedContentFolders.SharedContentFolderPropertyName;
             }
         }
         
@@ -156,7 +156,7 @@ namespace Constellation.Sitecore.Links
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         protected override bool IsElementName(string elementName)
         {
-            return (elementName == global::Constellation.Sitecore.Links.SharedContentFolders.SharedContentFolderPropertyName);
+            return (elementName == global::Constellation.Sitecore.SharedContentFolders.SharedContentFolderPropertyName);
         }
         
         /// <summary>
@@ -169,57 +169,57 @@ namespace Constellation.Sitecore.Links
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         protected override object GetElementKey(global::System.Configuration.ConfigurationElement element)
         {
-            return ((global::Constellation.Sitecore.Links.SharedContentFolder)(element)).TemplateName;
+            return ((global::Constellation.Sitecore.SharedContentFolder)(element)).TemplateName;
         }
         
         /// <summary>
-        /// Creates a new <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/>.
+        /// Creates a new <see cref="global::Constellation.Sitecore.SharedContentFolder"/>.
         /// </summary>
         /// <returns>
-        /// A new <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/>.
+        /// A new <see cref="global::Constellation.Sitecore.SharedContentFolder"/>.
         /// </returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         protected override global::System.Configuration.ConfigurationElement CreateNewElement()
         {
-            return new global::Constellation.Sitecore.Links.SharedContentFolder();
+            return new global::Constellation.Sitecore.SharedContentFolder();
         }
         #endregion
         
         #region Indexer
         /// <summary>
-        /// Gets the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> at the specified index.
+        /// Gets the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> at the specified index.
         /// </summary>
-        /// <param name="index">The index of the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> to retrieve.</param>
+        /// <param name="index">The index of the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public global::Constellation.Sitecore.Links.SharedContentFolder this[int index]
+        public global::Constellation.Sitecore.SharedContentFolder this[int index]
         {
             get
             {
-                return ((global::Constellation.Sitecore.Links.SharedContentFolder)(base.BaseGet(index)));
+                return ((global::Constellation.Sitecore.SharedContentFolder)(base.BaseGet(index)));
             }
         }
         
         /// <summary>
-        /// Gets the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> with the specified key.
+        /// Gets the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> with the specified key.
         /// </summary>
-        /// <param name="templateName">The key of the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> to retrieve.</param>
+        /// <param name="templateName">The key of the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public global::Constellation.Sitecore.Links.SharedContentFolder this[object templateName]
+        public global::Constellation.Sitecore.SharedContentFolder this[object templateName]
         {
             get
             {
-                return ((global::Constellation.Sitecore.Links.SharedContentFolder)(base.BaseGet(templateName)));
+                return ((global::Constellation.Sitecore.SharedContentFolder)(base.BaseGet(templateName)));
             }
         }
         #endregion
         
         #region Add
         /// <summary>
-        /// Adds the specified <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
+        /// Adds the specified <see cref="global::Constellation.Sitecore.SharedContentFolder"/> to the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
-        /// <param name="sharedContentFolder">The <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> to add.</param>
+        /// <param name="sharedContentFolder">The <see cref="global::Constellation.Sitecore.SharedContentFolder"/> to add.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public void Add(global::Constellation.Sitecore.Links.SharedContentFolder sharedContentFolder)
+        public void Add(global::Constellation.Sitecore.SharedContentFolder sharedContentFolder)
         {
             base.BaseAdd(sharedContentFolder);
         }
@@ -227,11 +227,11 @@ namespace Constellation.Sitecore.Links
         
         #region Remove
         /// <summary>
-        /// Removes the specified <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
+        /// Removes the specified <see cref="global::Constellation.Sitecore.SharedContentFolder"/> from the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
-        /// <param name="sharedContentFolder">The <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> to remove.</param>
+        /// <param name="sharedContentFolder">The <see cref="global::Constellation.Sitecore.SharedContentFolder"/> to remove.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public void Remove(global::Constellation.Sitecore.Links.SharedContentFolder sharedContentFolder)
+        public void Remove(global::Constellation.Sitecore.SharedContentFolder sharedContentFolder)
         {
             base.BaseRemove(this.GetElementKey(sharedContentFolder));
         }
@@ -239,23 +239,23 @@ namespace Constellation.Sitecore.Links
         
         #region GetItem
         /// <summary>
-        /// Gets the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> at the specified index.
+        /// Gets the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> at the specified index.
         /// </summary>
-        /// <param name="index">The index of the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> to retrieve.</param>
+        /// <param name="index">The index of the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public global::Constellation.Sitecore.Links.SharedContentFolder GetItemAt(int index)
+        public global::Constellation.Sitecore.SharedContentFolder GetItemAt(int index)
         {
-            return ((global::Constellation.Sitecore.Links.SharedContentFolder)(base.BaseGet(index)));
+            return ((global::Constellation.Sitecore.SharedContentFolder)(base.BaseGet(index)));
         }
         
         /// <summary>
-        /// Gets the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> with the specified key.
+        /// Gets the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> with the specified key.
         /// </summary>
-        /// <param name="templateName">The key of the <see cref="global::Constellation.Sitecore.Links.SharedContentFolder"/> to retrieve.</param>
+        /// <param name="templateName">The key of the <see cref="global::Constellation.Sitecore.SharedContentFolder"/> to retrieve.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
-        public global::Constellation.Sitecore.Links.SharedContentFolder GetItemByKey(string templateName)
+        public global::Constellation.Sitecore.SharedContentFolder GetItemByKey(string templateName)
         {
-            return ((global::Constellation.Sitecore.Links.SharedContentFolder)(base.BaseGet(((object)(templateName)))));
+            return ((global::Constellation.Sitecore.SharedContentFolder)(base.BaseGet(((object)(templateName)))));
         }
         #endregion
         
@@ -271,7 +271,7 @@ namespace Constellation.Sitecore.Links
         #endregion
     }
 }
-namespace Constellation.Sitecore.Links
+namespace Constellation.Sitecore
 {
     
     
@@ -304,16 +304,16 @@ namespace Constellation.Sitecore.Links
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The TemplateName.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentFolder.TemplateNamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.SharedContentFolder.TemplateNamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false)]
         public virtual string TemplateName
         {
             get
             {
-                return ((string)(base[global::Constellation.Sitecore.Links.SharedContentFolder.TemplateNamePropertyName]));
+                return ((string)(base[global::Constellation.Sitecore.SharedContentFolder.TemplateNamePropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.Links.SharedContentFolder.TemplateNamePropertyName] = value;
+                base[global::Constellation.Sitecore.SharedContentFolder.TemplateNamePropertyName] = value;
             }
         }
         #endregion
@@ -330,16 +330,16 @@ namespace Constellation.Sitecore.Links
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The RootPath.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentFolder.RootPathPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.SharedContentFolder.RootPathPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual string RootPath
         {
             get
             {
-                return ((string)(base[global::Constellation.Sitecore.Links.SharedContentFolder.RootPathPropertyName]));
+                return ((string)(base[global::Constellation.Sitecore.SharedContentFolder.RootPathPropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.Links.SharedContentFolder.RootPathPropertyName] = value;
+                base[global::Constellation.Sitecore.SharedContentFolder.RootPathPropertyName] = value;
             }
         }
         #endregion
@@ -356,16 +356,16 @@ namespace Constellation.Sitecore.Links
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The ParentPageQuery.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentFolder.ParentPageQueryPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.SharedContentFolder.ParentPageQueryPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
         public virtual string ParentPageQuery
         {
             get
             {
-                return ((string)(base[global::Constellation.Sitecore.Links.SharedContentFolder.ParentPageQueryPropertyName]));
+                return ((string)(base[global::Constellation.Sitecore.SharedContentFolder.ParentPageQueryPropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.Links.SharedContentFolder.ParentPageQueryPropertyName] = value;
+                base[global::Constellation.Sitecore.SharedContentFolder.ParentPageQueryPropertyName] = value;
             }
         }
         #endregion
@@ -382,16 +382,16 @@ namespace Constellation.Sitecore.Links
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The CategorizedBySiteFolder.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentFolder.CategorizedBySiteFolderPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.SharedContentFolder.CategorizedBySiteFolderPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public virtual bool CategorizedBySiteFolder
         {
             get
             {
-                return ((bool)(base[global::Constellation.Sitecore.Links.SharedContentFolder.CategorizedBySiteFolderPropertyName]));
+                return ((bool)(base[global::Constellation.Sitecore.SharedContentFolder.CategorizedBySiteFolderPropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.Links.SharedContentFolder.CategorizedBySiteFolderPropertyName] = value;
+                base[global::Constellation.Sitecore.SharedContentFolder.CategorizedBySiteFolderPropertyName] = value;
             }
         }
         #endregion
@@ -408,16 +408,16 @@ namespace Constellation.Sitecore.Links
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The PathToSiteFolder.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentFolder.PathToSiteFolderPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.SharedContentFolder.PathToSiteFolderPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public virtual string PathToSiteFolder
         {
             get
             {
-                return ((string)(base[global::Constellation.Sitecore.Links.SharedContentFolder.PathToSiteFolderPropertyName]));
+                return ((string)(base[global::Constellation.Sitecore.SharedContentFolder.PathToSiteFolderPropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.Links.SharedContentFolder.PathToSiteFolderPropertyName] = value;
+                base[global::Constellation.Sitecore.SharedContentFolder.PathToSiteFolderPropertyName] = value;
             }
         }
         #endregion
@@ -434,16 +434,16 @@ namespace Constellation.Sitecore.Links
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.1.0")]
         [global::System.ComponentModel.DescriptionAttribute("The FolderName.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.Links.SharedContentFolder.FolderNamePropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Constellation.Sitecore.SharedContentFolder.FolderNamePropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public virtual string FolderName
         {
             get
             {
-                return ((string)(base[global::Constellation.Sitecore.Links.SharedContentFolder.FolderNamePropertyName]));
+                return ((string)(base[global::Constellation.Sitecore.SharedContentFolder.FolderNamePropertyName]));
             }
             set
             {
-                base[global::Constellation.Sitecore.Links.SharedContentFolder.FolderNamePropertyName] = value;
+                base[global::Constellation.Sitecore.SharedContentFolder.FolderNamePropertyName] = value;
             }
         }
         #endregion

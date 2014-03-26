@@ -186,7 +186,7 @@
 		/// <returns>A siteInfo or null.</returns>
 		private SiteInfo GetInferredItemSite(Item item)
 		{
-			var sharedContentFolderSetting = SharedContent.Instance.SharedContentFolders[item.TemplateName];
+			var sharedContentFolderSetting = SharedContentConfiguration.Instance.SharedContentFolders[item.TemplateName];
 
 			if (sharedContentFolderSetting == null)
 			{
@@ -274,7 +274,7 @@
 			else
 			{
 				// item must be a shared type, so its path is explicit.
-				var setting = SharedContent.Instance.SharedContentFolders[item.TemplateName];
+				var setting = SharedContentConfiguration.Instance.SharedContentFolders[item.TemplateName];
 
 				if (setting != null)
 				{

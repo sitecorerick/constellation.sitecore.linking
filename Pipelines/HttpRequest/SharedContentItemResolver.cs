@@ -147,7 +147,7 @@
 			Item item = null;
 			var folder = PathUtility.GetFirstFolderFromPath(args.Url.ItemPath);
 
-			var settings = SharedContent.Instance.SharedContentFolders;
+			var settings = SharedContentConfiguration.Instance.SharedContentFolders;
 			var rootPath = (from SharedContentFolder setting in settings where setting.FolderName.Equals(folder, StringComparison.InvariantCultureIgnoreCase) select setting.RootPath).FirstOrDefault();
 
 			if (!string.IsNullOrEmpty(rootPath))
