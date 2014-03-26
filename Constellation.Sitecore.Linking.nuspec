@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+	<id>$id$</id>
+	<version>$version$</version>
+	<title>$title$</title>
+	<authors>Richard J. Cabral, Jimbo Baltikauskas</authors>
+	<owners>Richard J. Cabral</owners>
+	<projectUrl>https://github.com/sitecorerick/constellation.sitecore.sitemanagement</projectUrl>
+	<requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<summary>A tool to requisition entire sites, including security, in Sitecore.</summary>
+	<description>
+		Using a configuration file, it is possible to create "blueprints" representing different kinds of
+		sites used in your environment. A small web utility allows you to select a blueprint, specify some
+		languages and other restrictions, then creates a new site based on your specifications.
+		
+		The system is meant to be used in development, and includes the generation of site configuration nodes.
+	</description>
+	<releaseNotes>Initial NuGet release.</releaseNotes>
+	<copyright>Copyright 2014</copyright>
+	<tags>Sitecore</tags>
+  </metadata>
+</package>

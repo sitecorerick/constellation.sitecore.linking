@@ -1,0 +1,14 @@
+﻿Instructions
+============
+
+Use the provided configuration files as an example.
+
+1. Create the required Templates and Branch Templates in Sitecore.
+2. Create the required presentation details and assign to Standard Values.
+3. Create a Blueprint in the configuration file representing an example of
+a completed site using the Templates, Branch Templates, and presentation details.
+
+Be sure to include the security settings for any created objects.
+Be sure to include site configuration node settings for each build target in your environment.
+
+Run the SiteManager from the browser to create a site based on the blueprint.
