@@ -1,4 +1,5 @@
 #folders
+/_Binaries
 [Bb]in
 Databases/
 [Bb]in/[Dd]ebug*/
@@ -12,7 +13,7 @@ _ReSharper*/
 Thumbs.db
 [Tt]est[Rr]esult*
 *.Web/[Ww]eb.[Cc]onfig
-
+*.nupkg
 
 #extensions
 *_i.c
@@ -45,6 +46,4 @@ Thumbs.db
 !/TDS.*/*.scproj
 !/TDS.*/Code Generation Templates
 
-*.nupkg
 
-/_Binaries

@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>_Binaries\Sitecore\Sitecore.Kernel.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -75,6 +76,7 @@
     <None Include="App_Config\Constellation.LinkProviderSwitching.config.Example">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="App_Config\Include\_linkmanager.config" />
     <None Include="App_Config\Schemas\Constellation.LinkProviderSwitching.csd">
       <Generator>CsdFileGenerator</Generator>
       <LastGenOutput>Constellation.LinkProviderSwitching.csd.cs</LastGenOutput>

@@ -1,14 +1,17 @@
 ﻿Instructions
 ============
 
+Allows a developer to specify the LinkProvider to use for individual Sitecore Sites.
+Allows a developer to specify the location of content Items that are shared across sites and provide the following functionality:
+
+1. Produce context site URLs for the shared content (removes /sitecore/content/... from the URL)
+2. Explicitly define what the "parent" page of shared content should be when it is shared on a site. (use to create breadcrumbs that make sense)
+
 Use the provided configuration files as an example.
 
-1. Create the required Templates and Branch Templates in Sitecore.
-2. Create the required presentation details and assign to Standard Values.
-3. Create a Blueprint in the configuration file representing an example of
-a completed site using the Templates, Branch Templates, and presentation details.
+1. Change the default link provider to SwitchingLinkProvider
+2. Add SwitchingLinkProvider to the list of providers
+3. Add Sites to the LinkProviderSwitching.config
 
-Be sure to include the security settings for any created objects.
-Be sure to include site configuration node settings for each build target in your environment.
-
-Run the SiteManager from the browser to create a site based on the blueprint.
+I recommend finding a default that applies to most sites and only placing exceptions in the LinkProviderSwitching config file. See the
+provided example, which uses SharedContentLinkProvider as the default and uses Sitecore's native LinkProvider for the Sitecore sites.
