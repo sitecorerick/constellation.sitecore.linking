@@ -8,7 +8,7 @@
 	</configSections>
 
 	<Constellation xmlns="urn:Constellation.Sitecore">
-		<switchingLinkProvider configSource="App_Config\Constellation.LinkProviderSwitching.config" />
+		<switchingLinkProvider configSource="App_Config\Constellation.SwitchingLinkProvider.config" />
 	</Constellation>
 	end Web Config section -->
 	

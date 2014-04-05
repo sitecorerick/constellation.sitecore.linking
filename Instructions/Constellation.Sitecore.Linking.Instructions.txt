@@ -1,12 +1,15 @@
 ﻿Instructions
 ============
 
+What it does
+------------
 Allows a developer to specify the LinkProvider to use for individual Sitecore Sites.
-Allows a developer to specify the location of content Items that are shared across sites and provide the following functionality:
+Provides a way to specify the location of content Items that are shared across sites:
+	1. Produces context site URLs for the shared content (removes /sitecore/content/... from the URL)
+	2. Explicitly defines what the "parent" page of shared content should be when it is shared on a site. (use to create breadcrumbs that make sense)
 
-1. Produce context site URLs for the shared content (removes /sitecore/content/... from the URL)
-2. Explicitly define what the "parent" page of shared content should be when it is shared on a site. (use to create breadcrumbs that make sense)
-
+Configuration
+-------------
 Use the provided configuration files as an example.
 
 1. Change the default link provider to SwitchingLinkProvider

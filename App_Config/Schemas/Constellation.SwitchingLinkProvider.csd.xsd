@@ -30,13 +30,23 @@
 	</xs:complexType>
 	<xs:complexType name="Constellation.Sitecore.LinkProviderRulesCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="linkProviderRule" type="tns:Constellation.Sitecore.LinkProviderRuleCT">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="clear" type="tns:Constellation.Sitecore.LinkProviderRulesClearCT" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="remove" type="tns:Constellation.Sitecore.LinkProviderRulesRemoveCT" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="add" type="tns:Constellation.Sitecore.LinkProviderRuleCT">
 				<xs:annotation>
 					<xs:documentation>The LinkProviderRule Configuration Element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
+	<xs:complexType name="Constellation.Sitecore.LinkProviderRulesRemoveCT">
+		<xs:attribute name="site" use="required" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The Site.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Constellation.Sitecore.LinkProviderRulesClearCT" />
 	<xs:complexType name="Constellation.Sitecore.LinkProviderRuleCT">
 		<xs:attribute name="site" use="required" type="xs:string">
 			<xs:annotation>

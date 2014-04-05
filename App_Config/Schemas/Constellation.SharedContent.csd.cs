@@ -108,7 +108,7 @@ namespace Constellation.Sitecore
     /// <summary>
     /// A collection of SharedContentFolder instances.
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::Constellation.Sitecore.SharedContentFolder), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::Constellation.Sitecore.SharedContentFolders.SharedContentFolderPropertyName)]
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::Constellation.Sitecore.SharedContentFolder), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.AddRemoveClearMapAlternate, AddItemName="add", RemoveItemName="remove", ClearItemsName="clear")]
     public partial class SharedContentFolders : global::System.Configuration.ConfigurationElementCollection
     {
         
@@ -130,7 +130,7 @@ namespace Constellation.Sitecore
         {
             get
             {
-                return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
+                return global::System.Configuration.ConfigurationElementCollectionType.AddRemoveClearMapAlternate;
             }
         }
         

@@ -134,7 +134,7 @@ namespace Constellation.Sitecore
     /// <summary>
     /// A collection of LinkProviderRule instances.
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::Constellation.Sitecore.LinkProviderRule), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::Constellation.Sitecore.LinkProviderRules.LinkProviderRulePropertyName)]
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::Constellation.Sitecore.LinkProviderRule), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.AddRemoveClearMapAlternate, AddItemName="add", RemoveItemName="remove", ClearItemsName="clear")]
     public partial class LinkProviderRules : global::System.Configuration.ConfigurationElementCollection
     {
         
@@ -156,7 +156,7 @@ namespace Constellation.Sitecore
         {
             get
             {
-                return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
+                return global::System.Configuration.ConfigurationElementCollectionType.AddRemoveClearMapAlternate;
             }
         }
         

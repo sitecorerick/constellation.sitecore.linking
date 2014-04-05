@@ -25,13 +25,23 @@
 	</xs:complexType>
 	<xs:complexType name="Constellation.Sitecore.SharedContentFoldersCT">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="sharedContentFolder" type="tns:Constellation.Sitecore.SharedContentFolderCT">
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="clear" type="tns:Constellation.Sitecore.SharedContentFoldersClearCT" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="remove" type="tns:Constellation.Sitecore.SharedContentFoldersRemoveCT" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="add" type="tns:Constellation.Sitecore.SharedContentFolderCT">
 				<xs:annotation>
 					<xs:documentation>The SharedContentFolder Configuration Element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
+	<xs:complexType name="Constellation.Sitecore.SharedContentFoldersRemoveCT">
+		<xs:attribute name="templateName" use="required" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The TemplateName.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Constellation.Sitecore.SharedContentFoldersClearCT" />
 	<xs:complexType name="Constellation.Sitecore.SharedContentFolderCT">
 		<xs:attribute name="templateName" use="required" type="xs:string">
 			<xs:annotation>

@@ -29,7 +29,7 @@
         </elementProperty>
       </elementProperties>
     </configurationSection>
-    <configurationElementCollection name="SharedContentFolders" xmlItemName="sharedContentFolder" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+    <configurationElementCollection name="SharedContentFolders" collectionType="AddRemoveClearMapAlternate" xmlItemName="sharedContentFolder" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
       <itemType>
         <configurationElementMoniker name="/0191e669-3274-454b-8b87-85ce129728bc/SharedContentFolder" />
       </itemType>

@@ -37,7 +37,7 @@
         </elementProperty>
       </elementProperties>
     </configurationSection>
-    <configurationElementCollection name="LinkProviderRules" xmlItemName="linkProviderRule" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
+    <configurationElementCollection name="LinkProviderRules" collectionType="AddRemoveClearMapAlternate" xmlItemName="linkProviderRule" codeGenOptions="Indexer, AddMethod, RemoveMethod, GetItemMethods">
       <itemType>
         <configurationElementMoniker name="/f6c18f70-4ce8-4811-aa7a-dd82768c6b58/LinkProviderRule" />
       </itemType>
