@@ -60,6 +60,7 @@
     <Compile Include="Links\SharedContentLinkBuilder.cs" />
     <Compile Include="Links\SharedContentLinkProvider.cs" />
     <Compile Include="Links\LinkProviderResolver.cs" />
+    <Compile Include="LinkingItemExtensions.cs" />
     <Compile Include="Links\SwitchingLinkProvider.cs" />
     <Compile Include="Links\MediaLinkExpander.cs" />
     <Compile Include="PathUtility.cs" />
@@ -78,9 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Constellation.SwitchingLinkProvider.config.Example" />
-    <None Include="App_Config\Include\LinkManager.config.Example">
+    <Content Include="App_Config\Include\LinkManager.config.Example">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="App_Config\Constellation.SharedContent.config.Example">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
