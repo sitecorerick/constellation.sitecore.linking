@@ -12,9 +12,10 @@
 	using System.Linq;
 
 	/// <summary>
-	/// Drop-in replacement for the default Sitecore ItemResolver that handles
+	/// Follows the default Sitecore ItemResolver that handles
 	/// locating content that is site-specific but is not stored below
-	/// the site's start node.
+	/// the site's start node. Also ensures the context item is in 
+	/// a useable language.
 	/// </summary>
 	public class SharedContentItemResolver : HttpRequestProcessor
 	{
@@ -25,11 +26,9 @@
 		/// <param name="args">The parameters for this request.</param>
 		protected override void Execute(HttpRequestArgs args)
 		{
-			Item item;
-
 			if (Context.PageMode.IsNormal)
 			{
-				item = this.ResolveItem(args);
+				var item = this.ResolveItem(args);
 
 				if (item == null)
 				{
@@ -48,63 +47,7 @@
 			}
 			else
 			{
-				// Page Editor and Preview mode support
-				this.RunStandardItemResolver(args);
-				item = Context.Item;
-				if (item == null)
-				{
-					return; // no valid item found.
-				}
-
-				Tracer.Info("Current item is \"" + item.Paths.Path + "\".");
-
-				/////* 
-				//// * When we're in Preview or Page Editor, 
-				//// * we need to manually adjust the site
-				//// */
-
-				// Figure out if the Item is a decendant of the current site.
-				var itemPath = item.Paths.FullPath;
-				var siteRoot = Context.Site.SiteInfo.RootPath;
-
-				if (itemPath.StartsWith(siteRoot, StringComparison.InvariantCultureIgnoreCase))
-				{
-					// Yep, it's an Item under the root of the site.
-					return;
-				}
-
-				// We need to switch to the correct site.
-				var sites = Factory.GetSiteInfoList();
-				SiteInfo correctedSite = null;
-
-				foreach (var site in sites)
-				{
-					if (itemPath.StartsWith(site.RootPath, StringComparison.InvariantCultureIgnoreCase))
-					{
-						correctedSite = site;
-						break;
-					}
-				}
-
-				// Fix the site
-				if (correctedSite == null)
-				{
-					// stay where we are
-					return;
-				}
-
-				string prefix = "http://" + correctedSite.TargetHostName;
-
-				// Kill the request and redirect to the appropriate site prefix.
-				if (correctedSite.VirtualFolder.Length > 1)
-				{
-					// The Virtual folder wasn't "root" ( = "/")
-					prefix += correctedSite.VirtualFolder.Substring(0, correctedSite.VirtualFolder.Length - 1);
-				}
-
-				var adjustedUri = new Uri(prefix + args.Context.Request.Url.PathAndQuery);
-				args.AbortPipeline();
-				args.Context.Response.Redirect(adjustedUri.OriginalString, true);
+				this.ExecuteInExperienceEditorMode(args);
 			}
 		}
 
@@ -115,17 +58,68 @@
 		/// <param name="args">The parameters for this request.</param>
 		protected override void Defer(HttpRequestArgs args)
 		{
-			this.RunStandardItemResolver(args);
+			// We don't need to do anything.
 		}
 
-		/// <summary>
-		/// Runs the default Sitecore Item resolver.
-		/// </summary>
-		/// <param name="args">The parameters for this request.</param>
-		protected void RunStandardItemResolver(HttpRequestArgs args)
+
+		private void ExecuteInExperienceEditorMode(HttpRequestArgs args)
 		{
-			var resolver = new SharedContentItemResolver();
-			resolver.Process(args);
+			// Page Editor and Preview mode support
+			var item = Context.Item;
+			if (item == null)
+			{
+				return; // no valid item found, nothing to do.
+			}
+
+			Tracer.Info("Current item is \"" + item.Paths.Path + "\".");
+
+			/* 
+			 * When we're in Preview or Page Editor, 
+			 * we need to manually adjust the site
+			 */
+
+			// Figure out if the Item is a decendant of the current site.
+			var itemPath = item.Paths.FullPath;
+			var siteRoot = Context.Site.SiteInfo.RootPath;
+
+			if (itemPath.StartsWith(siteRoot, StringComparison.InvariantCultureIgnoreCase))
+			{
+				// Yep, it's an Item under the root of the site.
+				return;
+			}
+
+			// We need to switch to the correct site.
+			var sites = Factory.GetSiteInfoList();
+			SiteInfo correctedSite = null;
+
+			foreach (var site in sites)
+			{
+				if (itemPath.StartsWith(site.RootPath, StringComparison.InvariantCultureIgnoreCase))
+				{
+					correctedSite = site;
+					break;
+				}
+			}
+
+			// Fix the site
+			if (correctedSite == null)
+			{
+				// stay where we are
+				return;
+			}
+
+			string prefix = "http://" + correctedSite.TargetHostName;
+
+			// Kill the request and redirect to the appropriate site prefix.
+			if (correctedSite.VirtualFolder.Length > 1)
+			{
+				// The Virtual folder wasn't "root" ( = "/")
+				prefix += correctedSite.VirtualFolder.Substring(0, correctedSite.VirtualFolder.Length - 1);
+			}
+
+			var adjustedUri = new Uri(prefix + args.Context.Request.Url.PathAndQuery);
+			args.AbortPipeline();
+			args.Context.Response.Redirect(adjustedUri.OriginalString, true);
 		}
 
 		/// <summary>
@@ -136,15 +130,13 @@
 		/// <returns>The context item or null.</returns>
 		private Item ResolveItem(HttpRequestArgs args)
 		{
-			// Check for the Item in the usual spot.
-			this.RunStandardItemResolver(args);
+			Item item = Context.Item;
 
-			if (Context.Item != null)
+			if (item != null)
 			{
-				return Context.Item; // we found the item.
+				return item; // Context Item resolved successfully by previous pipeline handlers.
 			}
 
-			Item item = null;
 			var folder = PathUtility.GetFirstFolderFromPath(args.Url.ItemPath);
 
 			var settings = SharedContentConfiguration.Instance.SharedContentFolders;
