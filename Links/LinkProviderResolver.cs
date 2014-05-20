@@ -1,5 +1,6 @@
 ﻿namespace Constellation.Sitecore.Links
 {
+	using global::Sitecore.Links;
 	using System;
 
 	/// <summary>
@@ -26,7 +27,7 @@
 				providerType = rule.LinkProviderType;
 			}
 
-			return (LinkProvider)(Activator.CreateInstance(providerType)); // We want to force an exception for incompatible types.
+			return Activator.CreateInstance(providerType) as LinkProvider; // We want to force an exception for incompatible types.
 		}
 	}
 }

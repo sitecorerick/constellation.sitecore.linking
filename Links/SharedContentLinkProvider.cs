@@ -21,7 +21,7 @@
 	/// included here.
 	/// </remarks>
 	[SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-	public class LinkProvider : global::Sitecore.Links.LinkProvider
+	public class SharedContentLinkProvider : LinkProvider
 	{
 		#region Properties
 		/// <summary>
@@ -32,9 +32,9 @@
 
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="LinkProvider"/> class.
+		/// Initializes a new instance of the <see cref="SharedContentLinkProvider"/> class.
 		/// </summary>
-		public LinkProvider()
+		public SharedContentLinkProvider()
 		{
 			this.defaultUrlOptions = new UrlOptions();
 		}
