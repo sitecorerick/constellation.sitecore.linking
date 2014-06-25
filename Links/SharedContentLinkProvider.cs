@@ -89,7 +89,7 @@
 			{
 				var dynamicOptions = new LinkUrlOptions { Site = Context.Site.Name, Language = item.Language };
 
-				var sharedContentSetting = SharedContentConfiguration.Instance.SharedContentFolders[item.TemplateName];
+				var sharedContentSetting = SharedContentLinkProviderConfiguration.Settings.Rules[item.TemplateName];
 				if (sharedContentSetting != null)
 				{
 					// Make sure we load Shared Content Items for editing in the context of their parent site

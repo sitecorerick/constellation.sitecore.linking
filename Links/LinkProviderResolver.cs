@@ -19,12 +19,12 @@
 		/// </returns>
 		public static LinkProvider Resolve(string site)
 		{
-			var rule = SwitchingLinkProviderConfiguration.Instance.LinkProviderRules[site];
-			var providerType = SwitchingLinkProviderConfiguration.Instance.DefaultLinkProviderType;
+			var rule = SwitchingLinkProviderConfiguration.Settings.Rules[site];
+			var providerType = SwitchingLinkProviderConfiguration.Settings.GetDefaultLinkProviderType();
 
 			if (rule != null)
 			{
-				providerType = rule.LinkProviderType;
+				providerType = rule.GetProviderType();
 			}
 
 			return Activator.CreateInstance(providerType) as LinkProvider; // We want to force an exception for incompatible types.

@@ -36,9 +36,9 @@
 
 			var siteName = Context.Site.Name;
 			Item parent = null;
-			var settings = SharedContentConfiguration.Instance.SharedContentFolders;
+			var settings = SharedContentLinkProviderConfiguration.Settings.Rules;
 
-			foreach (SharedContentFolder setting in settings)
+			foreach (SharedContentLinkProviderRule setting in settings)
 			{
 				if (!item.Paths.FullPath.StartsWith(setting.RootPath, StringComparison.InvariantCultureIgnoreCase))
 				{

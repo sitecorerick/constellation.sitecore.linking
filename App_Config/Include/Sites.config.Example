@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- For more information on using transformations 
+	 see the web.config examples at http://go.microsoft.com/fwlink/?LinkId=214134. -->
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/"  xmlns:set="http://www.sitecore.net/xmlconfig/set/">
+	<sitecore>
+		<sites>
+			<site name="example" patch:before="*[@name='website']"
+				hostName="www.your.website.domain.here"
+				targetHostName="www.your.website.domain.here"
+				mediaHostName="media.your.website.domain.here"
+				virtualFolder="/"
+				physicalFolder="/"   rootPath="/sitecore/content/"
+				startItem="/home"
+				language="en"
+				database="web"
+				domain="extranet"
+				allowDebug="true"
+				cacheHtml="true"
+				enablePreview="true"
+				enableWebEdit="true"
+				enableDebugger="true"
+				disableClientData="false"
+				loginPage="/login.aspx"
+				formsRoot="{196D355B-1520-40B3-A7CE-1CD91064E90A}"
+				 />
+			<site name="media" patch:before="*[@name='website']"
+				hostName="media.*"
+				targetHostName="media.your.website.domain.here"
+				virtualFolder="/"
+				physicalFolder="/"
+				rootPath="/sitecore/media library"
+				startItem="/nothing"
+				database="web"
+				domain="extranet"
+				allowDebug="false"
+				cacheHtml="false"
+				htmlCacheSize="0"
+				registryCacheSize="0"
+				viewStateCacheSize="0"
+				xslCacheSize="0"
+				filteredItemsCacheSize="0"
+				enablePreview="false"
+				enableWebEdit="false"
+				enableDebugger="false"
+				disableClientData="true"
+				enableAnalytics="false" />
+		</sites>
+	</sitecore>
+</configuration>

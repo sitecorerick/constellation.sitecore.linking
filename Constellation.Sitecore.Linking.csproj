@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Constellation.Sitecore, Version=1.5.5208.24086, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Constellation.Sitecore, Version=1.5.5256.20814, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Constellation.Sitecore.1.5.5208.24086\lib\net45\Constellation.Sitecore.dll</HintPath>
+      <HintPath>packages\Constellation.Sitecore.1.5.5256.20814\lib\net45\Constellation.Sitecore.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\_Binaries\Sitecore\Sitecore.Kernel.dll</HintPath>
@@ -46,23 +46,20 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Config\Schemas\Constellation.SharedContent.csd.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
-    </Compile>
-    <Compile Include="App_Config\Schemas\Constellation.SwitchingLinkProvider1.csd.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Constellation.SwitchingLinkProvider.csd</DependentUpon>
-    </Compile>
     <Compile Include="Links\ContentLinkExpander.cs" />
+    <Compile Include="Links\MediaLinkProvider.cs" />
     <Compile Include="Links\SharedContentLinkBuilder.cs" />
     <Compile Include="Links\SharedContentLinkProvider.cs" />
     <Compile Include="Links\LinkProviderResolver.cs" />
     <Compile Include="LinkingItemExtensions.cs" />
+    <Compile Include="Links\SharedContentLinkProviderConfiguration.cs" />
+    <Compile Include="Links\SharedContentLinkProviderRule.cs" />
+    <Compile Include="Links\SharedContentLinkProviderRuleCollection.cs" />
     <Compile Include="Links\SwitchingLinkProvider.cs" />
     <Compile Include="Links\MediaLinkExpander.cs" />
+    <Compile Include="Links\SwitchingLinkProviderConfiguration.cs" />
+    <Compile Include="Links\SwitchingLinkProviderRule.cs" />
+    <Compile Include="Links\SwitchingLinkProviderRuleCollection.cs" />
     <Compile Include="PathUtility.cs" />
     <Compile Include="Pipelines\HttpRequest\SharedContentItemResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,43 +75,25 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Constellation.SwitchingLinkProvider.config.Example" />
+    <Content Include="App_Config\Constellation.SwitchingLinkProvider.config.Example">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="App_Config\Include\LinkManager.config.Example">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Config\Constellation.SharedContent.config.Example">
+    <Content Include="App_Config\Constellation.SharedContentLinkProvider.config.Example">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Config\Include\HttpRequestPipeline.config.Example" />
-    <None Include="App_Config\Schemas\Constellation.SharedContent.csd">
-      <Generator>CsdFileGenerator</Generator>
-      <LastGenOutput>Constellation.SharedContent.csd.cs</LastGenOutput>
-    </None>
-    <None Include="App_Config\Schemas\Constellation.SharedContent.csd.config">
-      <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
-    </None>
-    <None Include="App_Config\Schemas\Constellation.SharedContent.csd.diagram">
-      <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
-    </None>
-    <Content Include="App_Config\Schemas\Constellation.SharedContent.csd.xsd">
-      <DependentUpon>Constellation.SharedContent.csd</DependentUpon>
-      <SubType>Designer</SubType>
+    <Content Include="App_Config\Include\HttpRequestPipeline.config.Example">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="App_Config\Schemas\Constellation.SwitchingLinkProvider.csd">
-      <Generator>CsdFileGenerator</Generator>
-      <LastGenOutput>Constellation.SwitchingLinkProvider1.csd.cs</LastGenOutput>
-    </None>
-    <None Include="App_Config\Schemas\Constellation.SwitchingLinkProvider.csd.config">
-      <DependentUpon>Constellation.SwitchingLinkProvider.csd</DependentUpon>
-    </None>
-    <None Include="App_Config\Schemas\Constellation.SwitchingLinkProvider.csd.diagram">
-      <DependentUpon>Constellation.SwitchingLinkProvider.csd</DependentUpon>
-    </None>
-    <Content Include="App_Config\Schemas\Constellation.SwitchingLinkProvider.csd.xsd">
-      <DependentUpon>Constellation.SwitchingLinkProvider.csd</DependentUpon>
-      <SubType>Designer</SubType>
+    <Content Include="App_Config\Include\MediaLibrary.config.Example">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Config\Include\Sites.config.Example">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Constellation.Sitecore.Linking.nuspec" />
     <None Include="packages.config" />

@@ -15,10 +15,11 @@
 
 		1. Produce context site URLs for the shared content (removes /sitecore/content/... from the URL)
 		2. Explicitly define what the "parent" page of shared content should be when it is shared on a site. (use to create breadcrumbs that make sense)
+		3. Allow each Site defined in the web.config to shunt Sitecore media requests to a second defined Sitecore site on a different hostname.
 
 		Example configuration files provided.
 	</description>
-	  <releaseNotes>Fixed the name of SharedContentLinkProvider.</releaseNotes>
+	  <releaseNotes>Revised, simplified configuration for LinkProviders.</releaseNotes>
 	<copyright>Copyright 2014</copyright>
 	<tags>Sitecore</tags>
   </metadata>

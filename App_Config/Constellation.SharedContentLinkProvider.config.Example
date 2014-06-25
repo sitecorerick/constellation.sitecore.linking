@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+
+<!-- Place this section in your Web.Config
+<configSections>
+	<section name="sharedContentLinkProvider" type="Constellation.Sitecore.Links.SharedContentConfiguration, Constellation.Sitecore.Linking"/>
+</configSections>
+<sharedContentLinkProvider configSource="App_Config\Constellation.SharedContentLinkProvider.config" />
+end Web.Config section -->
+
+<sharedContentLinkProvider>
+	<add templateName ="News Detail Page" rootPath="/sitecore/content" folderName="News" categorizedBySiteFolder="true" pathToSiteFolder="/sitecore/content/news/" parentPageQuery="/sitecore/content/sites/$site/home/news"/>
+</sharedContentLinkProvider>
+

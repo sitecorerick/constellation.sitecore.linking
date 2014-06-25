@@ -7,6 +7,7 @@ Allows a developer to specify the LinkProvider to use for individual Sitecore Si
 Provides a way to specify the location of content Items that are shared across sites:
 	1. Produces context site URLs for the shared content (removes /sitecore/content/... from the URL)
 	2. Explicitly defines what the "parent" page of shared content should be when it is shared on a site. (use to create breadcrumbs that make sense)
+	3. Allow each Site defined in the web.config to shunt Sitecore media requests to a second defined Sitecore site on a different hostname.
 
 Configuration
 -------------
@@ -15,6 +16,10 @@ Use the provided configuration files as an example.
 1. Change the default link provider to SwitchingLinkProvider
 2. Add SwitchingLinkProvider to the list of providers
 3. Add Sites to the LinkProviderSwitching.config
+4. Change the default MediaProvider to the included MediaLinkProvider.
+5. Add a "media" site definition (use the included sites.config as an example).
+6. Add "mediaHostName" attributes to Sitecore site definitions to further customize the solution.
 
-I recommend finding a default that applies to most sites and only placing exceptions in the LinkProviderSwitching config file. See the
-provided example, which uses SharedContentLinkProvider as the default and uses Sitecore's native LinkProvider for the Sitecore sites.
+for switching link providers, I recommend finding a default link provider that applies to most sites and only placing exceptions in the 
+LinkProviderSwitching config file. See the provided example, which uses SharedContentLinkProvider as the default and uses Sitecore's 
+native LinkProvider for the Sitecore sites.
