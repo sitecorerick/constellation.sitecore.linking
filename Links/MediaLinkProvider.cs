@@ -66,7 +66,7 @@
 				rootPath = StringUtil.Mid(rootPath, 1);
 			}
 
-			if (options.AlwaysIncludeServerUrl && Context.PageMode.IsNormal)
+			if (options.AlwaysIncludeServerUrl)
 			{
 				var hostname = this.GetSiteSpecificMediaHostname();
 

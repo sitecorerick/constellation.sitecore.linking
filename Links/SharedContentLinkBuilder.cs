@@ -278,7 +278,15 @@
 
 				if (setting != null)
 				{
-					itemPath = GetSharedContentItemRelativePath(item, setting.RootPath);
+					if (setting.CategorizedBySiteFolder)
+					{
+						itemPath = GetSharedContentItemRelativePath(item, setting.PathToSiteFolder, site.Name);
+					}
+					else
+					{
+						itemPath = GetSharedContentItemRelativePath(item, setting.PathToSiteFolder);
+					}
+
 					itemPath = FileUtil.MakePath(setting.FolderName, itemPath);
 				}
 			}
@@ -294,28 +302,42 @@
 		/// <summary>
 		/// Removes all components of an Item's path above and including the supplied ContentFolderName.
 		/// </summary>
-		/// <param name="item">The item to parse.</param>
-		/// <param name="contentFolderName">The folder name to remove.</param>
-		/// <returns>A truncated version of the Item's full path.</returns>
-		private string GetSharedContentItemRelativePath(Item item, string contentFolderName)
+		/// <param name="item">
+		/// The item to parse.
+		/// </param>
+		/// <param name="pathToSiteFolder">
+		/// The root Path.
+		/// </param>
+		/// <returns>
+		/// A truncated version of the Item's full path.
+		/// </returns>
+		private string GetSharedContentItemRelativePath(Item item, string pathToSiteFolder)
 		{
-			var path = item.Paths.FullPath.Replace("/sitecore/content/" + contentFolderName + "/", string.Empty);
+			var path = item.Paths.FullPath.ToLower().Replace(pathToSiteFolder.ToLower() + "/", string.Empty);
 
-			var firstSlash = path.IndexOf("/", StringComparison.InvariantCultureIgnoreCase);
+			return path;
+		}
 
-			// remove the site name from the path
-			return firstSlash > 0 ? path.Substring(firstSlash, path.Length - firstSlash) : path;
+		/// <summary>
+		/// Removes all components of an Item's path above and including the supplied ContentFolderName.
+		/// </summary>
+		/// <param name="item">
+		/// The item to parse.
+		/// </param>
+		/// <param name="pathToSiteFolder">
+		/// The root Path.
+		/// </param>
+		/// <param name="siteName">
+		/// The site Name.
+		/// </param>
+		/// <returns>
+		/// A truncated version of the Item's full path.
+		/// </returns>
+		private string GetSharedContentItemRelativePath(Item item, string pathToSiteFolder, string siteName)
+		{
+			var path = item.Paths.FullPath.ToLower().Replace(pathToSiteFolder.ToLower() + "/" + siteName.ToLower() + "/", string.Empty);
 
-			/*
-			 * foo/bar
-			 * 
-			 * firstslash = 3
-			 * path.Length = 7
-			 * 
-			 * remainder = 7 - 3 = 4
-			 * 
-			 * substring(firstslash, 4) = /bar
-			 */
+			return path;
 		}
 
 		/// <summary>

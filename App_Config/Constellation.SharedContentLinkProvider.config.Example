@@ -7,6 +7,36 @@
 <sharedContentLinkProvider configSource="App_Config\Constellation.SharedContentLinkProvider.config" />
 end Web.Config section -->
 
+
+<!-- 
+
+Usage
+=============================
+If a content type (Data Template) will be "shared" by multiple sites, include a record here.
+
+Attributes:
+templateName - the name of the template that is used to create shared items.
+rootPath - the path to the folder where the shared items are stored. the folderName attribute will be appended to this path for Item resolution.
+folderName - the name of the folder where the shared items are stored. - Used as the "root" in friendly URL generation.
+categorizedBySiteFolder - if true, path resolution will include the name of the current site to locate items. Also, the folder containing the name of the current site will be removed from friendly URLs.
+parentPageQuery - Shared Items need to look like they are children of site items. Use a query to point to the item that should represent the parent of shared content of this type. $site can be used as a wildcard for the site name.
+
+Example:
+News items are shared, but are categorized by Site for security reasons.
+They live at /sitecore/content/News
+A typical News item's path looks like this: /sitecore/content/News/corporateSiteName/YYYY/MM/dd/ArticleName
+
+Here are the settings:
+templateName ="News Detail Page" 
+rootPath="/sitecore/content" 
+folderName="News" 
+categorizedBySiteFolder="true" 
+pathToSiteFolder="/sitecore/content/news/" 
+parentPageQuery="/sitecore/content/sites/$site/home/news"
+
+Given the settings above, News Article URLs will look like this:
+http://corporatesitename/news/yyyy/mm/dd/articlename
+-->
 <sharedContentLinkProvider>
 	<add templateName ="News Detail Page" rootPath="/sitecore/content" folderName="News" categorizedBySiteFolder="true" pathToSiteFolder="/sitecore/content/news/" parentPageQuery="/sitecore/content/sites/$site/home/news"/>
 </sharedContentLinkProvider>

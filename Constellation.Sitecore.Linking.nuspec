@@ -19,7 +19,7 @@
 
 		Example configuration files provided.
 	</description>
-	  <releaseNotes>Revised, simplified configuration for LinkProviders.</releaseNotes>
+	  <releaseNotes>Fixed a null reference exception when MediaLinkProvider was called outside of an HttpRequest. Also added Tracer calls to SharedContentItemProvider.</releaseNotes>
 	<copyright>Copyright 2014</copyright>
 	<tags>Sitecore</tags>
   </metadata>

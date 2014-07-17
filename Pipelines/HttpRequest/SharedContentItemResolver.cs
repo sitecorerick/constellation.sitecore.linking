@@ -7,9 +7,8 @@
 	using global::Sitecore.Data.Items;
 	using global::Sitecore.Diagnostics;
 	using global::Sitecore.Pipelines.HttpRequest;
-	using global::Sitecore.Web;
 	using System;
-	using System.Linq;
+
 
 	/// <summary>
 	/// Follows the default Sitecore ItemResolver that handles
@@ -28,6 +27,12 @@
 		{
 			if (Context.PageMode.IsNormal)
 			{
+				if (Context.Item != null)
+				{
+					return; // The normal Item Resolver has found the Item, no work to do.
+				}
+
+				Tracer.Info("SharedContentItemResolver is attempting to resolve the item based on:" + args.Url.ItemPath);
 				var item = this.ResolveItem(args);
 
 				if (item == null)
@@ -61,22 +66,26 @@
 			// We don't need to do anything.
 		}
 
-
+		/// <summary>
+		/// Assuming there's a Context Item, this routine determines if Sitecore should change
+		/// hostnames to allow editing of a page that officially belongs to another site.
+		/// </summary>
+		/// <param name="args">
+		/// The args.
+		/// </param>
 		private void ExecuteInExperienceEditorMode(HttpRequestArgs args)
 		{
+			Tracer.Info("SharedContentItemResolver executing in Page Editor mode.");
+
 			// Page Editor and Preview mode support
 			var item = Context.Item;
 			if (item == null)
 			{
-				return; // no valid item found, nothing to do.
+				return; // no item found using the stock Item Resolver in Page Edit mode is a 404 condition.
 			}
 
 			Tracer.Info("Current item is \"" + item.Paths.Path + "\".");
 
-			/* 
-			 * When we're in Preview or Page Editor, 
-			 * we need to manually adjust the site
-			 */
 
 			// Figure out if the Item is a decendant of the current site.
 			var itemPath = item.Paths.FullPath;
@@ -84,42 +93,32 @@
 
 			if (itemPath.StartsWith(siteRoot, StringComparison.InvariantCultureIgnoreCase))
 			{
-				// Yep, it's an Item under the root of the site.
-				return;
+				return; // Item is under the site root and is technically not a shared item.
 			}
 
 			// We need to switch to the correct site.
-			var sites = Factory.GetSiteInfoList();
-			SiteInfo correctedSite = null;
-
-			foreach (var site in sites)
+			var setting = SharedContentLinkProviderConfiguration.Settings.Rules[item.TemplateName];
+			if (!setting.CategorizedBySiteFolder)
 			{
-				if (itemPath.StartsWith(site.RootPath, StringComparison.InvariantCultureIgnoreCase))
-				{
-					correctedSite = site;
-					break;
-				}
+				return; // nothing to check.
 			}
 
-			// Fix the site
-			if (correctedSite == null)
+			var siteName = this.GetOfficialSiteNameFromPath(itemPath, setting.PathToSiteFolder);
+
+			var nativeSite = Factory.GetSite(siteName);
+			if (nativeSite == null)
 			{
-				// stay where we are
-				return;
+				return; // no site match.
 			}
 
-			string prefix = "http://" + correctedSite.TargetHostName;
-
-			// Kill the request and redirect to the appropriate site prefix.
-			if (correctedSite.VirtualFolder.Length > 1)
+			if (nativeSite.Name.Equals(Context.Site.Name, StringComparison.InvariantCultureIgnoreCase))
 			{
-				// The Virtual folder wasn't "root" ( = "/")
-				prefix += correctedSite.VirtualFolder.Substring(0, correctedSite.VirtualFolder.Length - 1);
+				return; // same site.
 			}
 
-			var adjustedUri = new Uri(prefix + args.Context.Request.Url.PathAndQuery);
+			Tracer.Info(item.Paths.FullPath + "resolved to a different site for editing. Redirecting to " + nativeSite.TargetHostName);
 			args.AbortPipeline();
-			args.Context.Response.Redirect(adjustedUri.OriginalString, true);
+			args.Context.Response.Redirect("http://" + nativeSite.TargetHostName + "/sitecore", true);
 		}
 
 		/// <summary>
@@ -130,30 +129,42 @@
 		/// <returns>The context item or null.</returns>
 		private Item ResolveItem(HttpRequestArgs args)
 		{
-			Item item = Context.Item;
-
-			if (item != null)
-			{
-				return item; // Context Item resolved successfully by previous pipeline handlers.
-			}
+			Item item = null;
 
 			var folder = PathUtility.GetFirstFolderFromPath(args.Url.ItemPath);
 
 			var settings = SharedContentLinkProviderConfiguration.Settings.Rules;
-			var rootPath = (from SharedContentLinkProviderRule setting in settings where setting.FolderName.Equals(folder, StringComparison.InvariantCultureIgnoreCase) select setting.RootPath).FirstOrDefault();
+			SharedContentLinkProviderRule setting = null;
 
-			if (!string.IsNullOrEmpty(rootPath))
+			foreach (SharedContentLinkProviderRule rule in settings)
 			{
-				var relativePath = this.GetRelativePathToItem(this.RemoveFlagFolderFromPath(args.Url.ItemPath, folder));
-				item = this.GetItem(rootPath, relativePath);
+				if (rule.FolderName.Equals(folder, StringComparison.InvariantCultureIgnoreCase))
+				{
+					setting = rule;
+					Tracer.Info("SharedContentItemResolver found a matching rule for flag folder: " + folder);
+					break;
+				}
 			}
 
-			if (item != null)
+			if (setting == null)
 			{
-				item = item.GetBestFitLanguageVersion(Context.Language);
+				Tracer.Info("SharedContentItemResolver found no rule for flag folder: " + folder);
+				return null;
 			}
 
-			return item;
+			if (!string.IsNullOrEmpty(setting.PathToSiteFolder))
+			{
+				var pathWithoutFlag = this.RemoveFlagFolderFromPath(args.Url.ItemPath, folder);
+				var relativePath = this.GetRelativePathToItem(pathWithoutFlag);
+				item = this.GetItem(setting.PathToSiteFolder, relativePath, setting.CategorizedBySiteFolder);
+			}
+
+			if (item == null)
+			{
+				return null;
+			}
+
+			return item.GetBestFitLanguageVersion(Context.Language);
 		}
 		#endregion
 
@@ -183,6 +194,26 @@
 		}
 
 		/// <summary>
+		/// The get official site name from path.
+		/// </summary>
+		/// <param name="itemPath">
+		/// The item path.
+		/// </param>
+		/// <param name="pathToSiteFolder">
+		/// The path to site folder.
+		/// </param>
+		/// <returns>
+		/// The <see cref="string"/>.
+		/// </returns>
+		private string GetOfficialSiteNameFromPath(string itemPath, string pathToSiteFolder)
+		{
+			string path = itemPath.Replace(pathToSiteFolder + "/", string.Empty);
+
+			var firstSlash = path.IndexOf("/", StringComparison.InvariantCultureIgnoreCase);
+			return path.Substring(0, firstSlash);
+		}
+
+		/// <summary>
 		/// Provides access to the part of the URL that will remain the same after it is
 		/// transplanted to the correct folder.
 		/// </summary>
@@ -197,42 +228,53 @@
 				path = path.Substring(1, path.Length - 1);
 			}
 
-			if (!path.Contains("/"))
-			{
-				return path;
-			}
-
-			var slash = path.IndexOf("/", StringComparison.InvariantCultureIgnoreCase);
-			var length = path.Length - (slash + 1);
-
-			return path.Substring(slash + 1, length);
-
-			/*
-			 * A little math
-			 *  
-			 * "foo/bar"
-			 * 
-			 * index of slash = 3
-			 * length of string = 7
-			 * length of remaining string = 7 - 3 = 4
-			 * 
-			 * substring(3, 4) = "/bar"
-			 * 
-			 */
+			return path;
 		}
 
 		/// <summary>
 		/// Queries for an Item based upon a root path, the context site, and the suffix path.
 		/// </summary>
-		/// <param name="prefix">The root path to the folder where Items are kept.</param>
-		/// <param name="suffix">The date, alpha, or name path to the Item.</param>
-		/// <returns>The Item or null.</returns>
-		private Item GetItem(string prefix, string suffix)
+		/// <param name="prefix">
+		/// The root path to the folder where Items are kept.
+		/// </param>
+		/// <param name="suffix">
+		/// The date, alpha, or name path to the Item.
+		/// </param>
+		/// <param name="categorizedBySiteFolder">
+		/// The categorized By Site Folder.
+		/// </param>
+		/// <returns>
+		/// The Item or null.
+		/// </returns>
+		private Item GetItem(string prefix, string suffix, bool categorizedBySiteFolder)
 		{
-			var siteName = Context.Site.Name;
-			var item = DatasourceResolver.Resolve(prefix + "/" + siteName + "/" + suffix, Context.Site.Database);
+			Item item;
+			string path = prefix + "/" + suffix;
 
-			return item ?? DatasourceResolver.Resolve(prefix + "/*/" + suffix, Context.Site.Database);
+			if (!categorizedBySiteFolder)
+			{
+				item = DatasourceResolver.Resolve(path, Context.Site.Database);
+			}
+			else
+			{
+				var siteName = Context.Site.Name;
+				path = prefix + "/" + siteName + "/" + suffix;
+				item = DatasourceResolver.Resolve(path, Context.Site.Database);
+
+				if (item == null)
+				{
+					Tracer.Info("SharedContentItemResolver did not find an item at expected site path: " + path);
+					path = prefix + "/*/" + suffix;
+					item = DatasourceResolver.Resolve(path, Context.Site.Database);
+				}
+			}
+
+			if (item == null)
+			{
+				Tracer.Info("SharedContetnItemResolver did not find an item at expected path: " + path);
+			}
+
+			return item;
 		}
 		#endregion
 	}
