@@ -2,7 +2,7 @@
 
 <!-- Place this section in your Web.Config
 <configSections>
-	<section name="sharedContentLinkProvider" type="Constellation.Sitecore.Links.SharedContentConfiguration, Constellation.Sitecore.Linking"/>
+	<section name="sharedContentLinkProvider" type="Constellation.Sitecore.Links.SharedContentLinkProviderConfiguration, Constellation.Sitecore.Linking"/>
 </configSections>
 <sharedContentLinkProvider configSource="App_Config\Constellation.SharedContentLinkProvider.config" />
 end Web.Config section -->
