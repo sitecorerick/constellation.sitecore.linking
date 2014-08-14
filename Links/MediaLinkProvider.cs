@@ -44,6 +44,12 @@
 			Assert.ArgumentNotNull(item, "item");
 			Assert.ArgumentNotNull(options, "options");
 
+			if (item.Database.Name == "master")
+			{
+				var provider = new global::Sitecore.Resources.Media.MediaProvider();
+				return provider.GetMediaUrl(item, options);
+			}
+
 			if (!options.Thumbnail && !this.HasMediaContent(item))
 			{
 				if (item.InnerItem["path"].Length > 0)
