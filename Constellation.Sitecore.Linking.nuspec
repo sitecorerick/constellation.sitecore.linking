@@ -19,7 +19,7 @@
 
 		Example configuration files provided.
 	</description>
-	  <releaseNotes>Made MediaLinkProvider use the stock provider if the media item was from the Master database - solves some Preview problems.</releaseNotes>
+	  <releaseNotes>Updated Constellation.Sitecore.</releaseNotes>
 	<copyright>Copyright 2014</copyright>
 	<tags>Sitecore</tags>
   </metadata>
