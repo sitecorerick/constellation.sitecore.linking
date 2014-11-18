@@ -19,7 +19,7 @@
 
 		Example configuration files provided.
 	</description>
-	  <releaseNotes>Updated Constellation.Sitecore.</releaseNotes>
+	  <releaseNotes>Typo in SwitchingLiinkProviderConfiguration</releaseNotes>
 	<copyright>Copyright 2014</copyright>
 	<tags>Sitecore</tags>
   </metadata>

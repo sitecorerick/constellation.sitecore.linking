@@ -19,9 +19,21 @@
 		}
 
 		/// <summary>
+		/// Gets or sets the Link Provider Name. If this value is not empty, this value trumps
+		/// the value of the ProviderType and uses LinkManager to load the provider. This is
+		/// the preferred method of getting providers.
+		/// </summary>
+		[ConfigurationProperty("name")]
+		public string Name
+		{
+			get { return (string)base["name"]; }
+			set { base["name"] = value; }
+		}
+
+		/// <summary>
 		/// Gets or sets the provider type.
 		/// </summary>
-		[ConfigurationProperty("providerType", IsRequired = true)]
+		[ConfigurationProperty("providerType")]
 		public string ProviderType
 		{
 

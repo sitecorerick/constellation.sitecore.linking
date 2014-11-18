@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Constellation.Sitecore, Version=1.7.5350.25752, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Constellation.Sitecore, Version=1.8.5409.24921, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Constellation.Sitecore.1.7.5350.25752\lib\net45\Constellation.Sitecore.dll</HintPath>
+      <HintPath>packages\Constellation.Sitecore.1.8.5409.24921\lib\net45\Constellation.Sitecore.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\_Binaries\Sitecore\Sitecore.Kernel.dll</HintPath>

@@ -34,12 +34,23 @@
 		/// <summary>
 		/// Gets or sets the provider type.
 		/// </summary>
-		[ConfigurationProperty("defaultLinkProviderType", IsRequired = true)]
+		[ConfigurationProperty("defaultLinkProviderType")]
 		public string DefaultLinkProviderType
 		{
 
 			get { return (string)base["defaultLinkProviderType"]; }
 			set { base["defaultLinkProviderType"] = value; }
+		}
+
+		/// <summary>
+		/// Gets or sets the default link provider name.
+		/// </summary>
+		[ConfigurationProperty("defaultLinkProviderName")]
+		public string DefaultLinkProviderName
+		{
+
+			get { return (string)base["defaultLinkProviderName"]; }
+			set { base["defaultLinkProviderName"] = value; }
 		}
 
 		/// <summary>

@@ -8,15 +8,15 @@
 	<switchingLinkProvider configSource="App_Config\Constellation.SwitchingLinkProvider.config" />
 	end Web Config section -->
 	
-<switchingLinkProvider defaultLinkProviderType="Constellation.Sitecore.Links.SharedContentLinkProvider, Constellation.Sitecore.Linking">
-	<add site="shell" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="login" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="admin" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="service" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="modules_shell" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="modules_website" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="scheduler" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="system" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
-	<add site="publisher" providerType="Sitecore.Links.LinkProvider, Sitecore.Kernel"/>
+<switchingLinkProvider defaultLinkProviderName="SharedContentLinkProvider">
+	<add site="shell" providerName="sitecore" />
+	<add site="login" providerName="sitecore" />
+	<add site="admin" providerName="sitecore" />
+	<add site="service" providerName="sitecore" />
+	<add site="modules_shell" providerName="sitecore" />
+	<add site="modules_website" providerName="sitecore" />
+	<add site="scheduler" providerName="sitecore" />
+	<add site="system" providerName="sitecore" />
+	<add site="publisher" providerName="sitecore" />
 </switchingLinkProvider>
 

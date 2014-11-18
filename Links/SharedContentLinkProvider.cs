@@ -127,11 +127,19 @@
 		{
 			Assert.ArgumentNotNull(item, "item");
 			Assert.ArgumentNotNull(options, "options");
-			var builder = new StringBuilder("http://");
+			var builder = new StringBuilder();
 
 			// Get the hostname for the site
 			var siteInfo = Factory.GetSiteInfo(options.Site);
-			builder.Append(siteInfo.TargetHostName);
+
+			if (siteInfo != null)
+			{
+				if (!string.IsNullOrEmpty(siteInfo.TargetHostName))
+				{
+					builder.Append("http://");
+					builder.Append(siteInfo.TargetHostName);
+				}
+			}
 
 			var queryStringSeparator = HttpUtility.HtmlDecode(Settings.Links.QueryStringSeparator);
 			builder.Append("/~/link.aspx?_id" + '=' + item.ID.ToShortID());

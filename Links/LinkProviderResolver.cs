@@ -20,14 +20,39 @@
 		public static LinkProvider Resolve(string site)
 		{
 			var rule = SwitchingLinkProviderConfiguration.Settings.Rules[site];
+			var providerName = SwitchingLinkProviderConfiguration.Settings.DefaultLinkProviderName;
 			var providerType = SwitchingLinkProviderConfiguration.Settings.GetDefaultLinkProviderType();
 
 			if (rule != null)
 			{
+				providerName = rule.Name;
+
+				if (!string.IsNullOrEmpty(providerName))
+				{
+					return LinkManager.Providers[providerName];
+				}
+
+				// This is the old style, which is included for backwards compatibility.
 				providerType = rule.GetProviderType();
+
+				if (providerType != null)
+				{
+					return Activator.CreateInstance(providerType) as LinkProvider;
+				}
 			}
 
-			return Activator.CreateInstance(providerType) as LinkProvider; // We want to force an exception for incompatible types.
+			if (!string.IsNullOrEmpty(providerName))
+			{
+				return LinkManager.Providers[providerName];
+			}
+
+			// This is the old style, which is provided for backwards compatibility.
+			if (providerType != null)
+			{
+				return Activator.CreateInstance(providerType) as LinkProvider;
+			}
+
+			return LinkManager.Providers["sitecore"];
 		}
 	}
 }
