@@ -95,7 +95,9 @@
     <Content Include="App_Config\Include\Sites.config.Example">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Constellation.Sitecore.Linking.nuspec" />
+    <None Include="Constellation.Sitecore.Linking.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
