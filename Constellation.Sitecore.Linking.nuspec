@@ -1,26 +1,30 @@
 <?xml version="1.0"?>
 <package >
-  <metadata>
-	<id>$id$</id>
-	<version>$version$</version>
-	<title>$title$</title>
-	<authors>Richard J. Cabral</authors>
-	<owners>Richard J. Cabral</owners>
-	<projectUrl>https://github.com/sitecorerick/constellation.sitecore.sitemanagement</projectUrl>
-	<requireLicenseAcceptance>false</requireLicenseAcceptance>
-	<summary>A tool to specify unique Link Providers for each Site in Sitecore.</summary>
-	<description>
-		Allows a developer to specify the LinkProvider to use for individual Sitecore Sites.
-		Allows a developer to specify the location of content Items that are shared across sites and provide the following functionality:
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>Richard J. Cabral</authors>
+		<owners>Richard J. Cabral</owners>
+		<projectUrl>https://github.com/sitecorerick/constellation.sitecore.sitemanagement</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<summary>A tool to specify unique Link Providers for each Site in Sitecore.</summary>
+		<description>
+			Allows a developer to specify the LinkProvider to use for individual Sitecore Sites.
+			Allows a developer to specify the location of content Items that are shared across sites and provide the following functionality:
 
-		1. Produce context site URLs for the shared content (removes /sitecore/content/... from the URL)
-		2. Explicitly define what the "parent" page of shared content should be when it is shared on a site. (use to create breadcrumbs that make sense)
-		3. Allow each Site defined in the web.config to shunt Sitecore media requests to a second defined Sitecore site on a different hostname.
+			1. Produce context site URLs for the shared content (removes /sitecore/content/... from the URL)
+			2. Explicitly define what the "parent" page of shared content should be when it is shared on a site. (use to create breadcrumbs that make sense)
+			3. Allow each Site defined in the web.config to shunt Sitecore media requests to a second defined Sitecore site on a different hostname.
 
-		Example configuration files provided.
-	</description>
-	  <releaseNotes>Typo in SwitchingLiinkProviderConfiguration</releaseNotes>
-	<copyright>Copyright 2014</copyright>
-	<tags>Sitecore</tags>
-  </metadata>
+			Example configuration files provided.
+		</description>
+		<releaseNotes>
+			Fixed SharedContentItemResolver to only remove the first occurance of the flag folder name, was causing issues where the flag folder
+			name was repeated somewhere deeper in the item path, like the item name. ex: /news/2015/great-news-for-dog-owners. Only the first occcurance
+			of news will be removed.
+		</releaseNotes>
+		<copyright>Copyright 2014</copyright>
+		<tags>Sitecore</tags>
+	</metadata>
 </package>

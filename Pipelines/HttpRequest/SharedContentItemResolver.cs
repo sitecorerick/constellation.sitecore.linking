@@ -190,7 +190,11 @@
 				path = path.Substring(1, path.Length - 1);
 			}
 
-			return path.Replace(flagFolderName, string.Empty);
+			var flagIndex = path.IndexOf(flagFolderName, StringComparison.InvariantCultureIgnoreCase);
+
+			path = path.Remove(flagIndex, flagFolderName.Length);
+
+			return path.Replace("//", "/");
 		}
 
 		/// <summary>
