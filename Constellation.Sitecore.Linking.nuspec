@@ -20,9 +20,7 @@
 			Example configuration files provided.
 		</description>
 		<releaseNotes>
-			Fixed SharedContentItemResolver to only remove the first occurance of the flag folder name, was causing issues where the flag folder
-			name was repeated somewhere deeper in the item path, like the item name. ex: /news/2015/great-news-for-dog-owners. Only the first occcurance
-			of news will be removed.
+			Updated development to VS2013
 		</releaseNotes>
 		<copyright>Copyright 2014</copyright>
 		<tags>Sitecore</tags>
