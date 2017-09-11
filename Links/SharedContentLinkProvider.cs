@@ -85,7 +85,7 @@
 			Assert.ArgumentNotNull(item, "item");
 			Assert.ArgumentNotNull(options, "options");
 
-			if (Context.Site != null && (Context.PageMode.IsPreview || Context.PageMode.IsPageEditor))
+			if (Context.Site != null && (Context.PageMode.IsPreview || Context.PageMode.IsExperienceEditor))
 			{
 				var dynamicOptions = new LinkUrlOptions { Site = Context.Site.Name, Language = item.Language };
 
