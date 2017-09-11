@@ -38,7 +38,7 @@
       <HintPath>packages\Constellation.Sitecore.3.0.5519.22168\lib\net45\Constellation.Sitecore.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Kernel">
-      <HintPath>..\..\Users\matthew.schroer\Downloads\Sitecore 8.2 rev. 170728\Sitecore 8.2 rev. 170728\Website\bin\Sitecore.Kernel.dll</HintPath>
+      <HintPath>..\_Binaries\Sitecore\Sitecore.Kernel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
